@@ -1,15 +1,30 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import Skeleton from "../component/Skeleton";
-import { HiMiniArchiveBox } from 'react-icons/hi2'
-import useSWR from 'swr'
+import { HiMiniArchiveBox } from 'react-icons/hi2';
+import useSWR from 'swr';
 import ProductEmpty from './ProductEmpty';
 import ProductRow from './ProductRow';
 import { Link } from 'react-router-dom';
-const fetcher = (url) => fetch(url).then(res => res.json())
+
+const fetcher = (url) => fetch(url).then(res => res.json());
+
 const ProductList = () => {
-    const { data, error, isLoading } = useSWR(import.meta.env.VITE_BASE_URL + "/products", fetcher)
-    if (isLoading) return <Skeleton/>;
-    console.log(data)
+    const { data, error, isLoading } = useSWR(import.meta.env.VITE_BASE_URL + "/products", fetcher);
+
+    // For preventing hydration mismatch by waiting for the component to be mounted on the client side
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true); // Set to true after the first render on client side
+    }, []);
+
+    if (!isMounted) {
+        return null; // or a loading placeholder to prevent SSR mismatch
+    }
+
+    if (isLoading) return <Skeleton />;
+    console.log(data);
+
     return (
         <div>
             <div className="flex mb-5 justify-between">
@@ -40,14 +55,14 @@ const ProductList = () => {
                             {isLoading ? (
                                 <Skeleton />
                             ) : (
-                                data.length === 0 ? <ProductEmpty/> : data.map((el) => <ProductRow key={el.id} product={el}/> )
+                                data.length === 0 ? <ProductEmpty /> : data.map((el) => <ProductRow key={el.id} product={el} />)
                             )}
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default ProductList
+export default ProductList;

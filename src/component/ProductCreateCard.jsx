@@ -6,7 +6,9 @@ import { useForm } from 'react-hook-form'
 
 const ProductCreateCard = () => {
   const { register,
-    handleSubmit } = useForm();
+    handleSubmit,formState:{
+      errors
+    } } = useForm();
   const handleCreateProduct = (data) => {
     console.log(data);
   };
