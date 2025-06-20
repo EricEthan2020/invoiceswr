@@ -1,28 +1,18 @@
 {
   "products": [
     {
-      "id": 3,
-      "product_name": "Product 3",
-      "price": 2000,
-      "created_at": "2022-03-20 14:45:00"
+      "product_name": "orange",
+      "price": "5000",
+      "all_correct": true,
+      "created_at": "2025-06-20T14:34:22.401Z",
+      "id": 1
     },
     {
-      "id": 4,
-      "product_name": "Product 4",
-      "price": 2500,
-      "created_at": "2022-04-10 09:00:00"
-    },
-    {
-      "id": 5,
-      "product_name": "Product 5",
-      "price": 3000,
-      "created_at": "2022-05-05 16:20:00"
-    },
-    {
-      "id": 6,
-      "product_name": "Product 6",
-      "price": 4999,
-      "created_at": "2022-02-15 10:30:00"
+      "product_name": "mango",
+      "price": "4999",
+      "all_correct": true,
+      "created_at": "2025-06-20T14:34:30.259Z",
+      "id": 2
     }
   ]
 }

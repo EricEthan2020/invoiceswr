@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 const fetcher = (url) => fetch(url).then(res => res.json());
 
 const ProductList = () => {
-    const { data, error, isLoading } = useSWR(import.meta.env.VITE_BASE_URL + "/products", fetcher);
+    const { data, isLoading } = useSWR(import.meta.env.VITE_BASE_URL + "/products", fetcher);
 
     // For preventing hydration mismatch by waiting for the component to be mounted on the client side
     const [isMounted, setIsMounted] = useState(false);

@@ -6,6 +6,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 import { createBrowserRouter, Outlet } from "react-router-dom";
 import Layout from "./component/Layout";
 import ProductCreatePage from "./pages/ProductCreatePage";
+import ProductEditPage from "./pages/ProductEditPage";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "sales",
         element: <SalePage />,
+      },
+      {
+        path:"/product/edit/:id",
+        element:<ProductEditPage/>
       },
       {
         path: "products",

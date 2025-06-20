@@ -1,6 +1,8 @@
 import React from 'react'
+import toast from 'react-hot-toast';
 import { BiMinus } from 'react-icons/bi';
 import { HiMiniArchiveBox, HiMiniPencilSquare } from 'react-icons/hi2'
+import { Link } from 'react-router-dom';
 import { useSWRConfig } from 'swr';
 
 const ProductRow = ({ product: { id, product_name, created_at, price } }) => {
@@ -10,6 +12,7 @@ const ProductRow = ({ product: { id, product_name, created_at, price } }) => {
       method: "DELETE",
     })
     mutate(import.meta.env.VITE_BASE_URL + `/products`)
+  toast.error("ဖျက်ပြီးပါပြီ။");
   }
   const date = new Date(created_at);
   const currentDate = date.toLocaleDateString("en-GB", {
@@ -37,7 +40,7 @@ const ProductRow = ({ product: { id, product_name, created_at, price } }) => {
           <p>{currentTime}</p>
         </td>
         <td className="px-3 flex gap-2 py-4 justify-center items-center">
-          <button className=' border py-2 px-3 rounded-lg bg-green-500 font-bold text-white'><HiMiniPencilSquare /></button>
+          <Link to={`/product/edit/${id}`} className=' border py-2 px-3 rounded-lg bg-green-500 font-bold text-white'><HiMiniPencilSquare /></Link>
           <button className=' py-2 px-3 bg-red-400 font-bold rounded-lg text-white' onClick={handleDelete}><HiMiniArchiveBox /></button>
         </td>
       </tr>
