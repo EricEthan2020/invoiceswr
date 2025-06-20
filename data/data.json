@@ -2,17 +2,22 @@
   "products": [
     {
       "product_name": "orange",
-      "price": "5000",
-      "all_correct": true,
-      "created_at": "2025-06-20T14:34:22.401Z",
+      "price": "3000",
+      "created_at": "2025-06-20T15:08:12.593Z",
       "id": 1
     },
     {
-      "product_name": "mango",
-      "price": "4999",
+      "product_name": "jljklsdajk",
+      "price": "43435",
       "all_correct": true,
-      "created_at": "2025-06-20T14:34:30.259Z",
+      "created_at": "2025-06-20T15:08:25.318Z",
       "id": 2
+    },
+    {
+      "product_name": "apple",
+      "price": "44",
+      "created_at": "2025-06-20T15:09:06.315Z",
+      "id": 3
     }
   ]
 }
